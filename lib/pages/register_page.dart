@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:minimal_social_app/components/my_button.dart';
 import 'package:minimal_social_app/components/my_textfield.dart';
 
-class LoginPage extends StatelessWidget {
+class RegisterPage extends StatelessWidget {
   // text controllers
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  RegisterPage({super.key});
 
   // login method
   void login() {}
