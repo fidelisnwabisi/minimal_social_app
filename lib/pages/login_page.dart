@@ -3,11 +3,13 @@ import 'package:minimal_social_app/components/my_button.dart';
 import 'package:minimal_social_app/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
+  final void Function()? onTap;
+
+  LoginPage({super.key, required this.onTap});
+
   // text controllers
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-  LoginPage({super.key});
 
   // login method
   void login() {}
@@ -89,7 +91,7 @@ class LoginPage extends StatelessWidget {
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: onTap,
                       child: const Text(
                         " Register Here",
                         style: TextStyle(
