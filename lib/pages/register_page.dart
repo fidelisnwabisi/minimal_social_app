@@ -4,13 +4,15 @@ import 'package:minimal_social_app/components/my_textfield.dart';
 
 class RegisterPage extends StatelessWidget {
   // text controllers
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPwController = TextEditingController();
 
   RegisterPage({super.key});
 
-  // login method
-  void login() {}
+  // register method
+  void register() {}
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +41,15 @@ class RegisterPage extends StatelessWidget {
 
                 const SizedBox(height: 50),
 
+                // username textfield
+                MyTextField(
+                  hintText: "Username",
+                  obscureText: false,
+                  controller: usernameController,
+                ),
+
+                const SizedBox(height: 10),
+
                 // email textfield
                 MyTextField(
                   hintText: "Email",
@@ -57,6 +68,15 @@ class RegisterPage extends StatelessWidget {
 
                 const SizedBox(height: 10),
 
+                // confirm password textfield
+                MyTextField(
+                  hintText: "Confirm Password",
+                  obscureText: true,
+                  controller: confirmPwController,
+                ),
+
+                const SizedBox(height: 10),
+
                 // forgot password
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -71,10 +91,10 @@ class RegisterPage extends StatelessWidget {
 
                 const SizedBox(height: 25),
 
-                // sign in button
+                // register button
                 MyButton(
-                  text: "Login",
-                  onTap: login,
+                  text: "Register",
+                  onTap: register,
                 ),
 
                 const SizedBox(height: 25),
@@ -84,14 +104,14 @@ class RegisterPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Don't have an account?",
+                      "Aready have an account?",
                       style: TextStyle(
                           color: Theme.of(context).colorScheme.inversePrimary),
                     ),
                     GestureDetector(
                       onTap: () {},
                       child: const Text(
-                        " Register Here",
+                        " Login Here",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
