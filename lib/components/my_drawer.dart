@@ -1,28 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({super.key});
+
+  // logout user
+  void logout() {
+    FirebaseAuth.instance.signOut();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Theme.of(context).colorScheme.background,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // drawer header
-          DrawerHeader(
-            child: Icon(
-              Icons.favorite,
-              color: Theme.of(context).colorScheme.inversePrimary,
-            ),
-          ),
-
-          const SizedBox(height: 25),
-
           Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // home tile
+              DrawerHeader(
+                child: Icon(
+                  Icons.favorite,
+                  color: Theme.of(context).colorScheme.inversePrimary,
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
                 child: ListTile(
@@ -88,8 +93,11 @@ class MyDrawer extends StatelessWidget {
               ),
               title: const Text('L O G O U T'),
               onTap: () {
-                // this is already the home screen so just pop drawer
+                // pop drawer
                 Navigator.pop(context);
+
+                // logout
+                logout();
               },
             ),
           ),

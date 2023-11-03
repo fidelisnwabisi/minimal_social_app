@@ -23,7 +23,7 @@ class AuthPage extends StatelessWidget {
             return const LoginOrRegister();
           }
         },
-      ),gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg
+      ),
     );
   }
 }
