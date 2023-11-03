@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, unused_local_variable
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_social_app/components/my_button.dart';
@@ -40,23 +42,26 @@ class _RegisterPageState extends State<RegisterPage> {
       displayMessageToUser("Passwords dont't Match!", context);
     }
 
-    // try creating the user
-    try {
-      // create the User
-      UserCredential? userCredential =
-          await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
+    // if paswords don't match
+    else {
+      // try creating the user
+      try {
+        // create the User
+        UserCredential? userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
 
-      // pop loading circle
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // pop loading circle
-      Navigator.pop(context);
+        // pop loading circle
+        Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        // pop loading circle
+        Navigator.pop(context);
 
-      // display message to user
-      displayMessageToUser(e.code, context);
+        // display message to user
+        displayMessageToUser(e.code, context);
+      }
     }
   }
 
