@@ -4,6 +4,7 @@ import 'package:minimal_social_app/firebase_options.dart';
 import 'package:minimal_social_app/theme/dark_mode.dart';
 import 'package:minimal_social_app/theme/light_mode.dart';
 
+import 'auth/auth.dart';
 import 'auth/login_or_register.dart';
 
 void main() async {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const LoginOrRegister(),
+      home: const AuthPage(),
       theme: lightMode,
       darkTheme: darkMode,
     );
